@@ -10,6 +10,7 @@ class indeedNL(CrawlSpider):
     allowed_domains = ['nl.indeed.com']
     start_urls = ['https://nl.indeed.com/developer-vacatures']
     rules = (
+        Rule(LinkExtractor(restrict_xpaths='//ul[@class="pagination-list"]/li/a')),
         Rule(LinkExtractor(restrict_xpaths='//h2[@class="title"]/a'), callback='parse_book'),
     )
 

@@ -11,7 +11,7 @@ BOT_NAME = 'joblistingscraper'
 
 SPIDER_MODULES = ['joblistingscraper.spiders']
 NEWSPIDER_MODULE = 'joblistingscraper.spiders'
-
+LOG_LEVEL = 'WARNING'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'joblistingscraper (+http://www.yourdomain.com)'
