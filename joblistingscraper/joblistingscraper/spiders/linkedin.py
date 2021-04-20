@@ -3,10 +3,6 @@ from scrapy.linkextractors import LinkExtractor
 from scrapy.loader import ItemLoader
 from joblistingscraper.items import JoblistingItem
 
-base_urls = [
-    'https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=$job&location=Amsterdam&geoId=&trk=homepage-jobseeker_jobs-search-bar_search-submit&start=$page',
-    'https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=Developer&location=Rotterdam&geoId=&trk=public_jobs_jobs-search-bar_search-submit&start=0']
-
 developers_key_words = ['developer', 'web developer', 'programmer', 'software engineer', 'software developer']
 locations = ['Amsterdam', 'Rotterdam', 'Utrech', 'Netherlands', 'The Hague', 'Eindhoven', 'Tilburg', 'Groningen',
              'Almere', 'Breda', 'Netherlands', 'Nijmegen']
