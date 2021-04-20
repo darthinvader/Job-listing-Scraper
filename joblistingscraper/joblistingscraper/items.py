@@ -5,13 +5,12 @@
 
 import scrapy
 from bs4 import BeautifulSoup
-from scrapy.loader.processors import MapCompose
+from itemloaders.processors import MapCompose
 from w3lib.html import remove_tags
 
+
 class JoblistingItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
     title = scrapy.Field()
     description = scrapy.Field(
-        input_processor = MapCompose(remove_tags)
+        input_processor=MapCompose(remove_tags)
     )
