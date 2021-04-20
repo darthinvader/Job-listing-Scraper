@@ -4,19 +4,19 @@ from scrapy.loader import ItemLoader
 from joblistingscraper.items import JoblistingItem
 
 base_urls = [
-    'https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=$job&location=Amsterdam&geoId=&trk=homepage-jobseeker_jobs-search-bar_search-submit&start=$page']
+    'https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=$job&location=Amsterdam&geoId=&trk=homepage-jobseeker_jobs-search-bar_search-submit&start=$page',
+    'https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=Developer&location=Rotterdam&geoId=&trk=public_jobs_jobs-search-bar_search-submit&start=0']
 
 developers_key_words = ['developer', 'web developer', 'programmer', 'software engineer', 'software developer']
-
+locations = ['Amsterdam', 'Rotterdam', 'Utrech', 'Netherlands', 'The Hague', 'Eindhoven', 'Tilburg', 'Groningen',
+             'Almere', 'Breda', 'Netherlands', 'Nijmegen']
 
 def linkedInApiUrls():
     urls = []
-    for url in base_urls:
-        for key_word in developers_key_words:
-            for i in range(0, 1000, 20):
-                new_url = url.replace('$page', str(i))
-                new_url = new_url.replace('$job', key_word)
-                urls.append(new_url)
+    for key_word in developers_key_words:
+        for location in locations:
+            for i in range(0, 1000, 25):
+                urls.append(f'https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords={key_word}&location={location}&geoId=&trk=homepage-jobseeker_jobs-search-bar_search-submit&start={i}')
     return urls
 
 
